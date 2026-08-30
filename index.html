@@ -124,8 +124,13 @@
   }
   .header-tagline .htag-main{
     font-family:'Sora',sans-serif;font-weight:700;
-    font-size:clamp(9.5px,1.6vw,13px);letter-spacing:.06em;
-    color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
+    letter-spacing:.06em;
+    color:#fff;max-width:100%;
+    display:inline-flex;align-items:center;
+    background:rgba(62,134,214,0.15);border:1px solid rgba(62,134,214,0.4);
+    color:#BFDCFA;padding:6px 16px;border-radius:30px;
+    font-size:clamp(10px,1.4vw,12.5px);letter-spacing:.14em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
   .header-tagline .htag-main .htag-accent{color:var(--blue-light);}
   .header-tagline .htag-sub{
@@ -133,20 +138,15 @@
     font-size:clamp(7.5px,1.1vw,10.5px);letter-spacing:.02em;
     color:var(--silver);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
   }
-  @media (max-width:480px){
-    .header-tagline .htag-sub{display:none;}
-    .header-tagline .htag-main{
-      white-space:normal;line-height:1.15;overflow:visible;text-overflow:clip;
-    }
-  }
   @media (min-width:900px){
     .header-tagline{padding:0 24px;}
   }
-  .header-tagline .htag-main{
-    display:inline-flex;align-items:center;
-    background:rgba(62,134,214,0.15);border:1px solid rgba(62,134,214,0.4);
-    color:#BFDCFA;padding:6px 16px;border-radius:30px;
-    font-size:clamp(10px,1.4vw,12.5px);letter-spacing:.14em;white-space:nowrap;
+  @media (max-width:480px){
+    .header-tagline .htag-sub{display:none;}
+    .header-tagline .htag-main{
+      white-space:normal;line-height:1.25;overflow:visible;text-overflow:clip;
+      text-align:center;padding:6px 12px;
+    }
   }
 
   .logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
@@ -1644,7 +1644,7 @@
     pendingTarget = null;
   }
 
-  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"], a[href*="facebook.com"]').forEach(function(a){
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
     a.addEventListener("click", function(e){
       e.preventDefault();
       var href = a.getAttribute("href");
